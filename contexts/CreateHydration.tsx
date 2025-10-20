@@ -31,10 +31,10 @@ export const HydrationProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [formValues, setFormValues] = useState<FormValuesType>({
-    totalGoals: "10000",
-    containerSize: "250",
-    wake: "07:00",
-    sleep: "20:00",
+    totalGoals: "",
+    containerSize: "",
+    wake: "",
+    sleep: "",
   });
 
   const [errors, setErrors] = useState<FormErrorsType>({});
