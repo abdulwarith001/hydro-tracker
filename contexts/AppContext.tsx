@@ -52,7 +52,6 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
         setProfile(null);
       }
     } catch (error) {
-      console.error("App state check failed:", error);
       await logout();
     } finally {
       setIsLoading(false);
@@ -79,7 +78,6 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
       setProfile(data);
       setIsAuthenticated(true);
     } catch (error) {
-      console.error("Login failed:", error);
       throw error;
     }
   };
@@ -90,9 +88,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
 
       setIsAuthenticated(false);
       setProfile(null);
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+    } catch (error) {}
   };
 
   const updateProfile = async (userData: Partial<Profile>) => {
@@ -100,9 +96,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
       const updated = { ...profile, ...userData } as Profile;
       await AsyncStorage.setItem("settings", JSON.stringify(updated));
       setProfile(updated);
-    } catch (error) {
-      console.error("Profile update failed:", error);
-    }
+    } catch (error) {}
   };
 
   const value: AppContextType = {

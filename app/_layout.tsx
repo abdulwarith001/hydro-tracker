@@ -1,11 +1,11 @@
 import { AppProvider } from "@/contexts/AppContext";
 import { registerForPushNotificationsAsync } from "@/services/notifications";
 import { useFonts } from "expo-font";
+import * as Notifications from "expo-notifications";
 import { SplashScreen, Stack } from "expo-router";
 import React, { useEffect } from "react";
 import { StatusBar } from "react-native";
 import "../global.css";
-import * as Notifications from "expo-notifications";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,14 +26,11 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, error]);
 
-
   useEffect(() => {
     registerForPushNotificationsAsync();
 
     const subscription = Notifications.addNotificationReceivedListener(
-      (notification) => {
-        console.log("Notification received:", notification);
-      }
+      () => {}
     );
 
     return () => subscription.remove();
@@ -46,7 +43,6 @@ export default function RootLayout() {
   if (!fontsLoaded && !error) {
     return null;
   }
-
 
   return (
     <AppProvider>
