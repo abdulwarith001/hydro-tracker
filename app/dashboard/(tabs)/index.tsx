@@ -44,7 +44,7 @@ const index = () => {
                     ? "Finish strong — one last drink!"
                     : "Goal achieved! Stay hydrated and proud!"}
         </Text>
-
+              
         <WaterCup
           waterLevel={progress * 100}
           volume={hydrationData?.totalDrank}

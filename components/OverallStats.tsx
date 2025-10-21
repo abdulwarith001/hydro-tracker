@@ -6,6 +6,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
+const formatNumber = (num: number) => num.toLocaleString();
+
 const OverallStats = () => {
   const { profile } = useApp();
   const { hydrationData } = useDashboard();
@@ -167,7 +169,7 @@ const OverallStats = () => {
 
           <StatCard
             title="This Week"
-            value={`${stats?.totalWeek || 0}ml`}
+            value={`${formatNumber(stats?.totalWeek || 0)}ml`}
             full
           />
         </View>
@@ -175,14 +177,14 @@ const OverallStats = () => {
         {/* Row 2 - Daily Average */}
         <StatCard
           title="Daily Average"
-          value={`${Math.round(stats?.avgDaily || 0)}ml`}
+          value={`${formatNumber(Math.round(stats?.avgDaily || 0))}ml`}
         />
 
         {/* Row 3 - Activity Stats */}
         <StatCard
           title="Most Active Day"
           value={`${stats?.mostActiveDay || "--"}`}
-          subValue={`${stats?.mostActiveValue || 0}ml`}
+          subValue={`${formatNumber(stats?.mostActiveValue || 0)}ml`}
         />
 
         {/* Row 4 - Lifetime Stats */}
@@ -192,7 +194,7 @@ const OverallStats = () => {
         />
         <StatCard
           title="Total Refills"
-          value={`${stats?.lifetimeVolume?.refills || 0}`}
+          value={`${formatNumber(stats?.lifetimeVolume?.refills || 0)}`}
         />
       </View>
     </View>
