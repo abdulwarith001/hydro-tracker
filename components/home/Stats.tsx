@@ -12,7 +12,7 @@ const Stats = () => {
         <View className="border border-[#D0DBE2] p-4 gap-10 w-[48%] rounded-2xl">
           <Text className="font-poppins-regular text-black">Total Volume</Text>
           <Text className="font-poppins-bold text-4xl">
-            {hydrationData?.totalGoal}ml
+            {hydrationData?.totalGoal.toLocaleString()}ml
           </Text>
         </View>
 
@@ -21,7 +21,7 @@ const Stats = () => {
             Current Volume
           </Text>
           <Text className="font-poppins-bold text-4xl">
-            {hydrationData?.totalDrank}ml
+            {hydrationData?.totalDrank.toLocaleString()}ml
           </Text>
         </View>
       </View>
@@ -31,14 +31,14 @@ const Stats = () => {
             Container size
           </Text>
           <Text className="font-poppins-bold text-4xl">
-            {hydrationData?.containerSize}ml
+            {hydrationData?.containerSize.toLocaleString()}ml
           </Text>
         </View>
 
         <View className="border border-[#D0DBE2] p-4 gap-10 w-[48%] rounded-2xl">
           <Text className="font-poppins-regular text-black">Total refills</Text>
           <Text className="font-poppins-bold text-4xl">
-            {profile?.totalCups} refills
+            {profile?.totalCups.toLocaleString()} refills
           </Text>
         </View>
       </View>
